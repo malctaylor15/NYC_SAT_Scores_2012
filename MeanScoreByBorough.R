@@ -1,5 +1,6 @@
 
 # Set working directory 
+setwd("C:/Users/board/Desktop/Kaggle/SAT_Scores")
 
 # import data 
 data2 <- read.csv("New_York_City_SAT_Results.csv")
