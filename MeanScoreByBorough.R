@@ -1,4 +1,8 @@
 
+# Packages used 
+library(dplyr)
+library(sm)             
+
 # Set working directory 
 setwd("C:/Users/board/Desktop/Kaggle/SAT_Scores")
 
@@ -26,14 +30,10 @@ data5 <- data.frame(apply(filtered_s_data[,3:6], 2,
 
 # Check 
 summary(data5)
-hist(data5[[2]]) # Crit Reading 
-# More histograms to come 
+hist(data5[[2]], main = "Critical Reading of All Boroughs"
+     , xlab = "Critical Reading Score") 
 
 # Create column of borough - we know it is embedded in the DBN code 
-
-################
-## This can be much cleaner
-################
 
 # Function that returns borough if the DBN string contains one of the characters 
 borough_checker <- function(code){
@@ -92,10 +92,10 @@ col_names <- colnames(data5)
 col_names2 <- col_names[-5]
 
 # Pre allocate space for data frames 
-df <- data.frame(matrix(0, nrow = 4*4, ncol = 7))
+df <- data.frame(matrix(0, nrow = 5*4*2, ncol = 7))
 # Name columns 
 names(df)[1:7] <- c("CategoryName", "Borough1", "Borough2", "P-value", 
-                    "Bx Score", "Borough Score" ,"Mean the same" )
+                    "Borough 1 Score", "Borough 2 Score" ,"Mean the same" )
 
 # Compare each borough series against each other for the same category 
 index <- 1
